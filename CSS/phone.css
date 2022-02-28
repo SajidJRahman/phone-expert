@@ -35,3 +35,8 @@
     font-weight: 600;
     color: red;
 }
+
+.card-style{
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px rgba(34, 56, 255, 0.075), 0px 0px 10px rgba(65, 110, 255, 0.6);
+}
