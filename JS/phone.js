@@ -8,12 +8,13 @@ const searchPhone = () => {
     searchInput.value = '';
 
     // handling error & fetching data
-    if (searchText === '') {
+    if (searchText.toLowerCase() === '') {
         notifyEmpty.style.display = 'block';
         notifyResult.style.display = 'none';
     }
-    else if (searchText !== '') {
+    else if (searchText.toLowerCase() !== '') {
         notifyEmpty.style.display = 'none';
+        notifyResult.style.display = 'none';
         spinner('block');
 
         // fetch & load data
@@ -42,7 +43,8 @@ const displayPhone = phones => {
         notifyResult.style.display = 'none';
 
         // display results
-        for (const phone of phones) {
+        for (const phone of phones.slice(0, 20)) {
+            details.textContent = '';
             const div = document.createElement('div');
             div.classList.add('col');
             div.innerHTML = `
@@ -51,11 +53,10 @@ const displayPhone = phones => {
                     <div class="card-body text-center">
                         <h6 class="card-title">${phone.brand}</h6>
                         <h5 class="card-title">${phone.phone_name}</h5>
-                        <button onclick="phoneDetails(${phone.slug})" class="btn btn-outline-dark rounded-pill px-5">Details</button>
+                        <a onclick="phoneDetails('${phone.slug}')" role="button" class="btn btn-outline-dark rounded-pill px-5" href="#detail-top">Detail</a>
                     </div>
                 </div>
             `;
-            phoneDetails(phone.slug)
             searchResult.appendChild(div);
         }
     }
@@ -63,8 +64,8 @@ const displayPhone = phones => {
 }
 
 const phoneDetails = phoneId => {
-    const urlDetails = `https://openapi.programming-hero.com/api/phone/${phoneId}`
-    fetch(urlDetails)
+    const detailsURL = `https://openapi.programming-hero.com/api/phone/${phoneId}`
+    fetch(detailsURL)
         .then(response => response.json())
         .then(result => displayPhoneDetails(result.data))
 }
@@ -77,7 +78,7 @@ const displayPhoneDetails = phoneDetail => {
     const divDetail = document.createElement('div');
     divDetail.innerHTML = `
         <div class="card card-style">
-            <img class="p-3" src="${phoneDetail.image}" class="card-img-top" alt="...">
+            <img class="p-3 img-fluid" src="${phoneDetail.image}" class="card-img-top" alt="...">
             <div class="card-body text-center">
                 <h6 class="card-title">${phoneDetail.brand}</h6>
                 <h5 class="card-title">${phoneDetail.name}</h5>
@@ -91,7 +92,7 @@ const displayPhoneDetails = phoneDetail => {
                 <p class="card-text font-bold">WiFi: ${phoneDetail.others.WLAN}</p>
                 <p class="card-text font-bold">Bluetooth: ${phoneDetail.others.Bluetooth}</p>
                 <p class="card-text font-bold">GPS: ${phoneDetail.others.GPS}, NFC: ${phoneDetail.others.NFC}, Radio: ${phoneDetail.others.Radio}</p>
-                <button onclick="closeButton()" class="btn btn-outline-dark rounded-pill px-5">Close</button>
+                <a onclick="closeButton()" role="button" class="btn btn-outline-dark rounded-pill px-5" href="#detail-top">Close</a>
             </div>
         </div>
     `;
@@ -100,5 +101,5 @@ const displayPhoneDetails = phoneDetail => {
 
 // closing button
 const closeButton = () => {
-    details.style.display = 'none';
+    details.innerHTML = '';
 }
