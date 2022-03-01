@@ -26,6 +26,11 @@
     box-shadow: 1px 1px 1px rgba(34, 56, 255, 0.075), 0px 0px 10px rgba(65, 110, 255, 0.6);
 }
 
+#spinner{
+    display: none;
+    color: rgb(64, 153, 255);
+}
+
 /* notification for empty result */
 #notify-result{
     display: none;

@@ -14,6 +14,7 @@ const searchPhone = () => {
     }
     else if (searchText !== '') {
         notifyEmpty.style.display = 'none';
+        spinner('block');
 
         // fetch & load data
         const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`
@@ -21,6 +22,12 @@ const searchPhone = () => {
             .then(response => response.json())
             .then(result => displayPhone(result.data))
     }
+}
+
+// spinner
+const spinner = displaySpinner => {
+    const spinner = document.getElementById('spinner');
+    spinner.style.display = displaySpinner;
 }
 
 const displayPhone = phones => {
@@ -52,6 +59,7 @@ const displayPhone = phones => {
             searchResult.appendChild(div);
         }
     }
+    spinner('none');
 }
 
 const phoneDetails = phoneId => {
