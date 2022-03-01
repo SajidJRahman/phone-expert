@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@1,700&display=swap');
 
 /* header */
-#phone-experts{
+#phone-experts {
     font-family: 'Lobster Two', cursive;
     color: rgb(64, 153, 255);
 }
@@ -11,7 +11,7 @@
 /* search button */
 #search-button {
     position: absolute;
-    right: 3px; 
+    right: 15px; 
     top: 3px;
     bottom: 3px;
     z-index: 4;
@@ -26,13 +26,14 @@
     box-shadow: 1px 1px 1px rgba(34, 56, 255, 0.075), 0px 0px 10px rgba(65, 110, 255, 0.6);
 }
 
-#spinner{
+/* spinner style */
+#spinner {
     display: none;
     color: rgb(64, 153, 255);
 }
 
 /* notification for empty result */
-#notify-result{
+#notify-result {
     display: none;
     text-align: center;
     font-weight: 600;
@@ -40,7 +41,7 @@
 }
 
 /* notification for empty input */
-#notify-empty{
+#notify-empty {
     display: none;
     text-align: center;
     font-weight: 600;
@@ -48,12 +49,12 @@
 }
 
 /* card style */
-.card-style{
+.card-style {
     border-radius: 15px;
-    box-shadow: 1px 1px 1px rgba(34, 56, 255, 0.075), 0px 0px 10px rgba(65, 110, 255, 0.6);
+    box-shadow: 0px 0px 0px, 0px 0px 10px rgb(226, 226, 226);
 }
 
 /* details font style */
-.font-bold{
+.font-bold {
     font-weight: 500;
 }
