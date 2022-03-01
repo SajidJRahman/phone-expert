@@ -45,7 +45,7 @@ const displayPhone = phones => {
         notifyResult.style.display = 'none';
 
         // display results
-        for (const phone of phones.slice(0, 20)) {
+        for (const phone of phones.slice(1, 21)) {
             details.textContent = '';
             const div = document.createElement('div');
             div.classList.add('col');
@@ -59,6 +59,7 @@ const displayPhone = phones => {
                     </div>
                 </div>
             `;
+            console.log(phone.slug)
             searchResult.appendChild(div);
         }
     }
