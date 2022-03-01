@@ -2,33 +2,39 @@
 /* font Lobster Two */
 @import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@1,700&display=swap');
 
-
-#first-h1{
+/* header */
+#phone-experts{
     font-family: 'Lobster Two', cursive;
-    color: rgb(0, 132, 255);
+    color: rgb(64, 153, 255);
 }
 
+/* search button */
 #search-button {
     position: absolute;
     right: 3px; 
     top: 3px;
     bottom: 3px;
     z-index: 4;
+    background-color: rgb(64, 153, 255);
+    color: white;
+    font-weight: 600;
 }
 
+/* search input */
 #search-input {
-    padding-right: 120px;
-    padding-left: 20px;
+    padding: 0.7rem 120px 0.8rem 20px; 
     box-shadow: 1px 1px 1px rgba(34, 56, 255, 0.075), 0px 0px 10px rgba(65, 110, 255, 0.6);
 }
 
-#notify-error{
+/* notification for empty result */
+#notify-result{
     display: none;
     text-align: center;
     font-weight: 600;
     color: red;
 }
 
+/* notification for empty input */
 #notify-empty{
     display: none;
     text-align: center;
@@ -36,7 +42,13 @@
     color: red;
 }
 
+/* card style */
 .card-style{
     border-radius: 15px;
     box-shadow: 1px 1px 1px rgba(34, 56, 255, 0.075), 0px 0px 10px rgba(65, 110, 255, 0.6);
+}
+
+/* details font style */
+.font-bold{
+    font-weight: 500;
 }
